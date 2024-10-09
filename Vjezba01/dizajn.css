@@ -42,6 +42,10 @@ form {
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
+form label {
+  color: white;
+}
+
 form input,
 form label {
   margin: 2%;
