@@ -6,10 +6,36 @@
     <meta charset="UTF-8" />
   </head>
   <body>
-    <form action="/prijava" method="POST">
-      <label for="korime">Korisničko ime</label>
-      <input name="korime" type="text" /> <label for="lozinka">Lozinka</label>
-      <input name="lozinka" type="text" /> <input type="submit" value="Šalji" />
-    </form>
+    <div id="Glassmorph">
+      <h2>Prijava</h2>
+      <form action="/prijava" method="POST">
+        <label for="korime">Korisničko ime</label>
+        <input name="korime" type="text" />
+        <label for="lozinka">Lozinka</label>
+        <input name="lozinka" type="text" />
+        <input type="submit" value="Šalji" />
+      </form>
+      <span class="loader"></span>
+      <button type="text" id="PromjenaButton">Registracija</button>
+    </div>
   </body>
+  <script>
+    var Promjena = document.getElementById("PromjenaButton");
+
+    Promjena.addEventListener("click", () => {
+      document.querySelector("form").style.display = "none";
+      document.querySelector(".loader").style.display = "block";
+      setTimeout(() => {
+        document.querySelector("form").style.display = "inherit";
+        document.querySelector(".loader").style.display = "none";
+      }, 500);
+      if (Promjena.innerHTML == "Registracija") {
+        document.querySelector("h2").innerText = "Registracija";
+        Promjena.innerHTML = "Prijava";
+      } else {
+        document.querySelector("h2").innerText = "Prijava";
+        Promjena.innerHTML = "Registracija";
+      }
+    });
+  </script>
 </html>
